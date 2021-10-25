@@ -1,5 +1,3 @@
-#!/home/ubuntu/anaconda3/bin/python
-
 import os
 import lgsvl
 import time
@@ -22,7 +20,7 @@ sim = lgsvl.Simulator(SIMULATOR_HOST, SIMULATOR_PORT)
 if sim.current_scene == "BorregasAve":
     sim.reset()
 else:
-    sim.load("BorregasAve", seed=314)
+    sim.load("BorregasAve")
 
 spawns = sim.get_spawn()
 
@@ -54,16 +52,16 @@ destination = spawns[0].destinations[0]
 #ped_state = state
 #ped_state.transform.position.x = ped_state.transform.position.x + 100
 
-npc_state = lgsvl.AgentState()
-state.transform.position = lgsvl.Vector(1.8687, -2.1091, -23.6003)
-npc = sim.add_agent("Bob", lgsvl.AgentType.PEDESTRIAN, npc_state)
+#npc_state = lgsvl.AgentState()
+#state.transform.position = lgsvl.Vector(1.8687, -2.1091, -23.6003)
+#npc = sim.add_agent("Bob", lgsvl.AgentType.PEDESTRIAN, npc_state)
 
 dv.setup_apollo(destination.position.x, destination.position.z, modules)
 
 sim.add_random_agents(lgsvl.AgentType.NPC)
 #input("Press Enter to start the simulation.")
 sim.run()
-print("is this synchronous?")
+#print("is this synchronous?")
 '''
 try:
     #    input("Press Enter to start the simulation.")
